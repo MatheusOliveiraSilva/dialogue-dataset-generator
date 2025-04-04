@@ -1,0 +1,783 @@
+-- auto-generated definition
+create table MONDIAL_AIRPORT
+(
+    NAME        VARCHAR2(100),
+    IATACODE    VARCHAR2(3),
+    COUNTRY     VARCHAR2(4),
+    CITY        VARCHAR2(50),
+    PROVINCE    VARCHAR2(50),
+    ISLAND      VARCHAR2(50),
+    LATITUDE    NUMBER,
+    LONGITUDE   NUMBER,
+    ELEVATION   NUMBER,
+    GMTOFFSET   NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_AIRPORT_PK
+    on MONDIAL_AIRPORT (IATACODE)
+/
+
+create index IDX_CTX_96EB0E37CB4F26D827D53
+    on MONDIAL_AIRPORT (NAME)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_4D77A542B6FC79737BA19
+    on MONDIAL_AIRPORT (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_CITY
+(
+    NAME        VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    POPULATION  NUMBER,
+    LATITUDE    NUMBER,
+    LONGITUDE   NUMBER,
+    ELEVATION   NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_CITY_PK
+    on MONDIAL_CITY (NAME, COUNTRY, PROVINCE)
+/
+
+create index IDX_CTX_FE60B9F72F739266B465C
+    on MONDIAL_CITY (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_BORDERS
+(
+    COUNTRY1    VARCHAR2(4),
+    COUNTRY2    VARCHAR2(4),
+    LENGTH      NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_BORDERS_PK
+    on MONDIAL_BORDERS (COUNTRY1, COUNTRY2)
+/
+
+create index IDX_CTX_1B6CB64FF5B4D64B5C962
+    on MONDIAL_BORDERS (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_CITYOTHERNAME
+(
+    CITY        VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    OTHERNAME   VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_CITYOTHERNAME_PK
+    on MONDIAL_CITYOTHERNAME (COUNTRY, PROVINCE, CITY, OTHERNAME)
+/
+
+-- auto-generated definition
+create table MONDIAL_CITYPOPS
+(
+    CITY        VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    YEAR        NUMBER,
+    POPULATION  NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_CITYPOPS_PK
+    on MONDIAL_CITYPOPS (COUNTRY, PROVINCE, CITY, YEAR)
+/
+
+-- auto-generated definition
+create table MONDIAL_CONTINENT
+(
+    NAME        VARCHAR2(20),
+    AREA        NUMBER(10),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_CONTINENT_PK
+    on MONDIAL_CONTINENT (NAME)
+/
+
+create index IDX_CTX_60445F1B215B2480C77D8
+    on MONDIAL_CONTINENT (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_COUNTRY
+(
+    NAME        VARCHAR2(50),
+    CODE        VARCHAR2(4),
+    CAPITAL     VARCHAR2(50),
+    PROVINCE    VARCHAR2(50),
+    AREA        NUMBER,
+    POPULATION  NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_COUNTRY_PK
+    on MONDIAL_COUNTRY (CODE)
+/
+
+create index IDX_CTX_6F42B4825AA99A6D7FDAF
+    on MONDIAL_COUNTRY (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_E752278C8926F09E3E7FB
+    on MONDIAL_COUNTRY (CODE)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_6545A1223B942569CF326
+    on MONDIAL_COUNTRY (NAME)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_COUNTRYPOPS
+(
+    COUNTRY     VARCHAR2(4),
+    YEAR        NUMBER,
+    POPULATION  NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_COUNTRYPOPS_PK
+    on MONDIAL_COUNTRYPOPS (COUNTRY, YEAR)
+/
+
+-- auto-generated definition
+create table MONDIAL_DESERT
+(
+    NAME        VARCHAR2(50),
+    AREA        NUMBER,
+    COORDINATES GEOCOORD,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_DESERT_PK
+    on MONDIAL_DESERT (NAME)
+/
+
+create index IDX_CTX_3332BB9482846302D8D7C
+    on MONDIAL_DESERT (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_ECONOMY
+(
+    COUNTRY      VARCHAR2(4),
+    GDP          NUMBER,
+    AGRICULTURE  NUMBER,
+    SERVICE      NUMBER,
+    INDUSTRY     NUMBER,
+    INFLATION    NUMBER,
+    UNEMPLOYMENT NUMBER,
+    META_REPCOL  VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_ECONOMY_PK
+    on MONDIAL_ECONOMY (COUNTRY)
+/
+
+-- auto-generated definition
+create table MONDIAL_ENCOMPASSES
+(
+    COUNTRY     VARCHAR2(4),
+    CONTINENT   VARCHAR2(20),
+    PERCENTAGE  NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_ENCOMPASSES_PK
+    on MONDIAL_ENCOMPASSES (COUNTRY, CONTINENT)
+/
+
+-- auto-generated definition
+create table MONDIAL_ETHNICGROUP
+(
+    COUNTRY     VARCHAR2(4),
+    NAME        VARCHAR2(50),
+    PERCENTAGE  NUMBER,
+    META_REPCOL VARCHAR2(200)
+)
+/
+
+-- auto-generated definition
+create table MONDIAL_GEO_DESERT
+(
+    DESERT      VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_GEO_DESERT_PK
+    on MONDIAL_GEO_DESERT (PROVINCE, COUNTRY, DESERT)
+/
+
+create index IDX_CTX_82FB7D118BB93A318790E
+    on MONDIAL_GEO_DESERT (COUNTRY)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_GEO_ESTUARY
+(
+    RIVER       VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_GEO_ESTUARY_PK
+    on MONDIAL_GEO_ESTUARY (PROVINCE, COUNTRY, RIVER)
+/
+
+create index IDX_CTX_F5D091EDCB4F837E90A6A
+    on MONDIAL_GEO_ESTUARY (COUNTRY)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_GEO_ISLAND
+(
+    ISLAND      VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_GEO_ISLAND_PK
+    on MONDIAL_GEO_ISLAND (PROVINCE, COUNTRY, ISLAND)
+/
+
+create index IDX_CTX_447693433AE1933FBF156
+    on MONDIAL_GEO_ISLAND (COUNTRY)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_GEO_LAKE
+(
+    LAKE        VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_GEO_LAKE_PK
+    on MONDIAL_GEO_LAKE (PROVINCE, COUNTRY, LAKE)
+/
+
+create index IDX_CTX_CD8975FDC6D4938AE19BF
+    on MONDIAL_GEO_LAKE (COUNTRY)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_GEO_MOUNTAIN
+(
+    MOUNTAIN    VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_GEO_MOUNTAIN_PK
+    on MONDIAL_GEO_MOUNTAIN (PROVINCE, COUNTRY, MOUNTAIN)
+/
+
+create index IDX_CTX_B9582A58367C49D716919
+    on MONDIAL_GEO_MOUNTAIN (COUNTRY)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_GEO_RIVER
+(
+    RIVER       VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_GEO_RIVER_PK
+    on MONDIAL_GEO_RIVER (PROVINCE, COUNTRY, RIVER)
+/
+
+create index IDX_CTX_62FB537A5109F79A9D1CC
+    on MONDIAL_GEO_RIVER (COUNTRY)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_GEO_SEA
+(
+    SEA         VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_GEO_SEA_PK
+    on MONDIAL_GEO_SEA (PROVINCE, COUNTRY, SEA)
+/
+
+create index IDX_CTX_B08761EFECAF66DC5F43A
+    on MONDIAL_GEO_SEA (COUNTRY)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_GEO_SOURCE
+(
+    RIVER       VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    PROVINCE    VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_GEO_SOURCE_PK
+    on MONDIAL_GEO_SOURCE (PROVINCE, COUNTRY, RIVER)
+/
+
+create index IDX_CTX_091EFDEC7A11474BD4D9F
+    on MONDIAL_GEO_SOURCE (COUNTRY)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_ISLAND
+(
+    NAME        VARCHAR2(50),
+    ISLANDS     VARCHAR2(50),
+    AREA        NUMBER,
+    ELEVATION   NUMBER,
+    TYPE        VARCHAR2(10),
+    COORDINATES GEOCOORD,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_ISLAND_PK
+    on MONDIAL_ISLAND (NAME)
+/
+
+create index IDX_CTX_FED0363896F2D07B863A1
+    on MONDIAL_ISLAND (ISLANDS)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_D5D035BD5717A3E9FC103
+    on MONDIAL_ISLAND (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_345C8F530327B49147246
+    on MONDIAL_ISLAND (TYPE)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_ISLANDIN
+(
+    ISLAND      VARCHAR2(50),
+    SEA         VARCHAR2(50),
+    LAKE        VARCHAR2(50),
+    RIVER       VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+-- auto-generated definition
+create table MONDIAL_ISMEMBER
+(
+    COUNTRY      VARCHAR2(4),
+    ORGANIZATION VARCHAR2(12),
+    TYPE         VARCHAR2(60),
+    META_REPCOL  VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_ISMEMBER_PK
+    on MONDIAL_ISMEMBER (COUNTRY, ORGANIZATION)
+/
+
+create index IDX_CTX_9C9F4B2A9AEB2053B2EA0
+    on MONDIAL_ISMEMBER (ORGANIZATION)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_ABBB51A0C4DFD63FE6D70
+    on MONDIAL_ISMEMBER (TYPE)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_LAKE
+(
+    NAME        VARCHAR2(50),
+    RIVER       VARCHAR2(50),
+    AREA        NUMBER,
+    ELEVATION   NUMBER,
+    DEPTH       NUMBER,
+    HEIGHT      NUMBER,
+    TYPE        VARCHAR2(12),
+    COORDINATES GEOCOORD,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_LAKE_PK
+    on MONDIAL_LAKE (NAME)
+/
+
+create index IDX_CTX_35768F884C57C6F8D533F
+    on MONDIAL_LAKE (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_9415202E19AFDBBA5D6FD
+    on MONDIAL_LAKE (TYPE)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_LANGUAGE
+(
+    COUNTRY     VARCHAR2(4),
+    NAME        VARCHAR2(50),
+    PERCENTAGE  NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_LANGUAGE_PK
+    on MONDIAL_LANGUAGE (NAME, COUNTRY)
+/
+
+-- auto-generated definition
+create table MONDIAL_LOCATED
+(
+    CITY        VARCHAR2(50),
+    PROVINCE    VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    RIVER       VARCHAR2(50),
+    LAKE        VARCHAR2(50),
+    SEA         VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+-- auto-generated definition
+create table MONDIAL_LOCATEDON
+(
+    CITY        VARCHAR2(50),
+    PROVINCE    VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    ISLAND      VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_LOCATEDON_PK
+    on MONDIAL_LOCATEDON (CITY, PROVINCE, COUNTRY, ISLAND)
+/
+
+-- auto-generated definition
+create table MONDIAL_MERGESWITH
+(
+    SEA1        VARCHAR2(50),
+    SEA2        VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+-- auto-generated definition
+create table MONDIAL_MOUNTAIN
+(
+    NAME        VARCHAR2(50),
+    MOUNTAINS   VARCHAR2(50),
+    ELEVATION   NUMBER,
+    TYPE        VARCHAR2(10),
+    COORDINATES GEOCOORD,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_MOUNTAIN_PK
+    on MONDIAL_MOUNTAIN (NAME)
+/
+
+create index IDX_CTX_9424D5BDE776254F19FDF
+    on MONDIAL_MOUNTAIN (TYPE)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_44570F59352B97ECE1D21
+    on MONDIAL_MOUNTAIN (MOUNTAINS)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_D64E3CED93901F800ADA9
+    on MONDIAL_MOUNTAIN (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_MOUNTAINONISLAND
+(
+    MOUNTAIN    VARCHAR2(50),
+    ISLAND      VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_MOUNTAINONISLAND_PK
+    on MONDIAL_MOUNTAINONISLAND (MOUNTAIN, ISLAND)
+/
+
+create index IDX_CTX_66A03BBA25399FE00453E
+    on MONDIAL_MOUNTAINONISLAND (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_BB7059B7CA1C69410C448
+    on MONDIAL_MOUNTAINONISLAND (ISLAND)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_ORGANIZATION
+(
+    ABBREVIATION VARCHAR2(12),
+    NAME         VARCHAR2(100),
+    CITY         VARCHAR2(50),
+    COUNTRY      VARCHAR2(4),
+    PROVINCE     VARCHAR2(50),
+    ESTABLISHED  DATE,
+    META_REPCOL  VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_ORGANIZATION_PK
+    on MONDIAL_ORGANIZATION (ABBREVIATION)
+/
+
+create index IDX_CTX_85F389C0F838C46B8B218
+    on MONDIAL_ORGANIZATION (ABBREVIATION)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_POLITICS
+(
+    COUNTRY      VARCHAR2(4),
+    INDEPENDENCE DATE,
+    WASDEPENDENT VARCHAR2(50),
+    DEPENDENT    VARCHAR2(4),
+    GOVERNMENT   VARCHAR2(120),
+    META_REPCOL  VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_POLITICS_PK
+    on MONDIAL_POLITICS (COUNTRY)
+/
+
+create index IDX_CTX_06E2C4B73F8A99948F30E
+    on MONDIAL_POLITICS (GOVERNMENT)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_POPULATION
+(
+    COUNTRY           VARCHAR2(4),
+    POPULATION_GROWTH NUMBER,
+    INFANT_MORTALITY  NUMBER,
+    META_REPCOL       VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_POPULATION_PK
+    on MONDIAL_POPULATION (COUNTRY)
+/
+
+-- auto-generated definition
+create table MONDIAL_PROVINCE
+(
+    NAME        VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    POPULATION  NUMBER,
+    AREA        NUMBER,
+    CAPITAL     VARCHAR2(50),
+    CAPPROV     VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_PROVINCE_PK
+    on MONDIAL_PROVINCE (NAME, COUNTRY)
+/
+
+create index IDX_CTX_196A2D654D6FE4B21D546
+    on MONDIAL_PROVINCE (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_PROVINCEOTHERNAME
+(
+    PROVINCE    VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    OTHERNAME   VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_PROVINCEOTHERNAME_PK
+    on MONDIAL_PROVINCEOTHERNAME (COUNTRY, PROVINCE, OTHERNAME)
+/
+
+-- auto-generated definition
+create table MONDIAL_PROVPOPS
+(
+    PROVINCE    VARCHAR2(50),
+    COUNTRY     VARCHAR2(4),
+    YEAR        NUMBER,
+    POPULATION  NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_PROVPOPS_PK
+    on MONDIAL_PROVPOPS (COUNTRY, PROVINCE, YEAR)
+/
+
+-- auto-generated definition
+create table MONDIAL_RELIGION
+(
+    COUNTRY     VARCHAR2(4),
+    NAME        VARCHAR2(50),
+    PERCENTAGE  NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_RELIGION_PK
+    on MONDIAL_RELIGION (NAME, COUNTRY)
+/
+
+create index IDX_CTX_879DA63B55D179E342208
+    on MONDIAL_RELIGION (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_RIVER
+(
+    NAME             VARCHAR2(50),
+    RIVER            VARCHAR2(50),
+    LAKE             VARCHAR2(50),
+    SEA              VARCHAR2(50),
+    LENGTH           NUMBER,
+    AREA             NUMBER,
+    SOURCE           GEOCOORD,
+    MOUNTAINS        VARCHAR2(50),
+    SOURCEELEVATION  NUMBER,
+    ESTUARY          GEOCOORD,
+    ESTUARYELEVATION NUMBER,
+    META_REPCOL      VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_RIVER_PK
+    on MONDIAL_RIVER (NAME)
+/
+
+create index IDX_CTX_379C5662FC31CB7A2144F
+    on MONDIAL_RIVER (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_2A1B1455FD45F9723F041
+    on MONDIAL_RIVER (RIVER)
+    indextype is CTXSYS.CONTEXT
+/
+
+create index IDX_CTX_5160530D5EDE4754AC3E8
+    on MONDIAL_RIVER (MOUNTAINS)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_RIVERTHROUGH
+(
+    RIVER       VARCHAR2(50),
+    LAKE        VARCHAR2(50),
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_RIVERTHROUGH_PK
+    on MONDIAL_RIVERTHROUGH (RIVER, LAKE)
+/
+
+create index IDX_CTX_CD14385FF0F1386BDE1FD
+    on MONDIAL_RIVERTHROUGH (LAKE)
+    indextype is CTXSYS.CONTEXT
+/
+
+-- auto-generated definition
+create table MONDIAL_SEA
+(
+    NAME        VARCHAR2(50),
+    AREA        NUMBER,
+    DEPTH       NUMBER,
+    META_REPCOL VARCHAR2(4000)
+)
+/
+
+create unique index MONDIAL_SEA_PK
+    on MONDIAL_SEA (NAME)
+/
+
+create index IDX_CTX_804DC97F1789DFB25CD93
+    on MONDIAL_SEA (META_REPCOL)
+    indextype is CTXSYS.CONTEXT
+/
+
