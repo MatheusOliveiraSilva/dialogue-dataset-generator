@@ -19,3 +19,5 @@ notebook
 ipykernel
 python-dotenv
 networkx
+
+oracledb
